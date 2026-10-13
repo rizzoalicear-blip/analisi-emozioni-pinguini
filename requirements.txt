@@ -31,6 +31,7 @@ numpy                        # calcoli numerici di supporto per il grafico a bar
 # --- FASE 3.1 e FASE 4: modelli Transformer ---
 transformers                   # libreria di Hugging Face per usare modelli Transformer pre-addestrati (es. irony-it)
 torch                           # libreria che fa "girare" i modelli Transformer (richiesta da transformers e pysentimiento)
+hashlib                         # calcola l'hash SHA256 dei testi per evitare duplicati (richiesta da pysentimiento)
 
 # --- FASE 5: date di uscita (Genius) e ascolti Spotify (kworb.net) ---
 requests                # fa le richieste web: ricerca su Genius (anni di uscita) e download della pagina di kworb
