@@ -2,7 +2,8 @@
 
 Progetto universitario in Python che analizza i testi di 20 canzoni dei **Pinguini Tattici Nucleari** (le 10 più ascoltate e le 10 meno ascoltate su Spotify) per capire quale emozione prevale in ciascuna e come questa si lega all'anno di uscita e al numero di ascolti.
 
-**Risultato finale:** un [grafico interattivo](#6-grafico-interattivo) (`grafico_interattivo.html`) in cui ogni pallino è una canzone: passandoci sopra con il mouse si vedono titolo, emozione prevalente, anno e ascolti esatti.
+**Risultato finale:** un [grafico interattivo] in cui ogni pallino è una canzone: passandoci sopra con il mouse si vedono titolo, emozione prevalente, anno e ascolti esatti.
+**Sito con tutti i grafici:** <https://rizzoalicear-blip.github.io/analisi-emozioni-pinguini/>
 
 > **Per chi valuta il progetto:** il percorso più rapido è aprire `index.html` nel browser (basta un doppio clic, non serve internet), che raccoglie tutti i grafici con spiegazione, e leggere le sezioni [Metodo](#metodo), [Risultati](#risultati) e [Limiti](#limiti-dellanalisi). Per rieseguire tutto serve la sezione [Come eseguirlo](#come-eseguirlo).
 
