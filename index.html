@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pinguini Tattici Nucleari: i grafici dell'analisi</title>
+<!--
+  ISTRUZIONI PER TE (puoi cancellare questo commento prima di caricare):
+  - Cerca "DA COMPLETARE" per trovare i punti in cui manca un'informazione che solo tu hai.
+-->
+<style>
+  :root {
+    --sfondo: #f6f7f9;
+    --scheda: #ffffff;
+    --testo: #1f2937;
+    --testo-tenue: #5b6472;
+    --bordo: #dfe3e8;
+    --accento: #2e75b6;
+    --accento-chiaro: #eaf2fa;
+    --avviso: #fff6e0;
+    --avviso-bordo: #f0c36d;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --sfondo: #14171c;
+      --scheda: #1c2027;
+      --testo: #e6e9ee;
+      --testo-tenue: #a3acba;
+      --bordo: #2c323c;
+      --accento: #6aaee8;
+      --accento-chiaro: #1d2a38;
+      --avviso: #3a3120;
+      --avviso-bordo: #8a6d2b;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--sfondo);
+    color: var(--testo);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .contenitore { max-width: 980px; margin: 0 auto; padding: 32px 20px 64px; }
+  header h1 { font-size: 1.9rem; line-height: 1.25; margin: 0 0 8px; }
+  header p { color: var(--testo-tenue); margin: 0 0 12px; }
+  a { color: var(--accento); }
+  nav {
+    background: var(--scheda); border: 1px solid var(--bordo); border-radius: 12px;
+    padding: 14px 20px; margin: 24px 0 8px;
+  }
+  nav strong { display: block; margin-bottom: 6px; }
+  nav ol { margin: 0; padding-left: 22px; }
+  nav li { margin: 2px 0; }
+  .scheda {
+    background: var(--scheda); border: 1px solid var(--bordo); border-radius: 14px;
+    padding: 22px 22px 8px; margin-top: 28px;
+  }
+  .scheda h2 { font-size: 1.3rem; margin: 0 0 4px; }
+  .sottotitolo { color: var(--testo-tenue); margin: 0 0 16px; font-size: 0.95rem; }
+  .scheda img {
+    display: block; width: 100%; height: auto;
+    border: 1px solid var(--bordo); border-radius: 10px; background: #fff;
+  }
+  .testo { margin: 16px 0 12px; }
+  .testo h3 {
+    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--accento); margin: 14px 0 2px;
+  }
+  .testo p { margin: 0 0 6px; }
+  .attenzione {
+    background: var(--avviso); border: 1px solid var(--avviso-bordo); border-radius: 10px;
+    padding: 10px 14px; margin: 12px 0; font-size: 0.95rem;
+  }
+  .da-completare {
+    background: #ffe0e0; color: #8a1c1c; border-radius: 4px; padding: 0 5px; font-weight: 600;
+  }
+  .incorporato {
+    width: 100%; height: 720px; border: 1px solid var(--bordo); border-radius: 10px; background: #fff;
+  }
+  .apri { display: inline-block; margin: 10px 0 14px; font-weight: 600; }
+  footer {
+    margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--bordo);
+    color: var(--testo-tenue); font-size: 0.9rem;
+  }
+  footer p { margin: 0 0 8px; }
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.5rem; }
+    .scheda { padding: 16px 14px 4px; }
+    .incorporato { height: 520px; }
+  }
+</style>
+</head>
+<body>
+<div class="contenitore">
+
+<header>
+  <h1>Pinguini Tattici Nucleari: i grafici dell'analisi</h1>
+  <p>Raccolta dei grafici del progetto sulle emozioni nei testi di 20 canzoni (le 10 più ascoltate e le 10 meno ascoltate su Spotify), ognuno con una spiegazione di cosa mostra e di come leggerlo.</p>
+  <!-- DA COMPLETARE: sostituisci NOME-UTENTE e NOME-REPOSITORY con quelli del tuo repository -->
+  <p>Metodo, risultati e limiti sono nel <a href="https://github.com/NOME-UTENTE/NOME-REPOSITORY">README del progetto su GitHub</a>.</p>
+</header>
+
+<nav aria-label="Indice dei grafici">
+  <strong>In questa pagina</strong>
+  <ol>
+    <li><a href="#emozioni-totali">Emozioni totali nel corpus</a></li>
+    <li><a href="#emozione-prevalente">Emozione prevalente per canzone</a></li>
+    <li><a href="#top-bottom">Più ascoltate contro meno ascoltate</a></li>
+    <li><a href="#mappa-calore">Mappa di calore canzoni × emozioni</a></li>
+        <li><a href="#scrivile-intro">Caso studio «Scrivile Scemo» (fase 3.1)</a>
+      <ol type="a">
+        <li><a href="#scrivile-emozioni">Andamento delle emozioni, senza contesto</a></li>
+        <li><a href="#scrivile-contesto-1">Andamento delle emozioni, contesto ±1 riga</a></li>
+        <li><a href="#scrivile-contesto-2">Andamento delle emozioni, contesto ±2 righe</a></li>
+        <li><a href="#scrivile-confronto">Confronto della rabbia tra le tre versioni</a></li>
+        <li><a href="#scrivile-differenza">Differenza della rabbia: contesto meno riga sola</a></li>
+        <li><a href="#scrivile-ironia">Andamento dell'ironia</a></li>
+      </ol>
+    </li>
+    <li><a href="#transformer">Confronto con il modello Transformer</a></li>
+    <li><a href="#interattivo">Grafico interattivo: anno, ascolti ed emozione</a></li>
+  </ol>
+</nav>
+
+<!-- 1 ------------------------------------------------------------------>
+<section class="scheda" id="emozioni-totali">
+  <h2>1. Emozioni totali nel corpus</h2>
+  <p class="sottotitolo">Grafico a barre · lessico NRC</p>
+  <img src="fase_3/grafico_temi_totale.png" alt="Grafico a barre con la somma dei punteggi di ciascuna delle 8 emozioni su tutte le 20 canzoni" loading="lazy">
+  <div class="testo">
+    <h3>Cosa mostra</h3>
+    <p>La somma di <strong>tutti</strong> i punti di ciascuna delle 8 emozioni su tutte le 20 canzoni, comprese le emozioni che in una canzone non sono la prevalente. Esempio: una canzone con 12 punti di rabbia e 4 di fiducia contribuisce con 12 punti alla rabbia e con 4 alla fiducia.</p>
+    <h3>Come leggerlo</h3>
+    <p>Più alta è la barra, più quell'emozione pesa nel complesso dei testi analizzati.</p>
+  </div>
+  <div class="attenzione"><strong>Attenzione.</strong> I punti dipendono dalla lunghezza dei testi e dai ritornelli, che sono contati a ogni ripetizione: una canzone lunga pesa di più. Inoltre il lessico NRC non ha lo stesso numero di parole per ogni emozione, quindi confrontare le altezze delle barre tra emozioni diverse va fatto con cautela.</div>
+</section>
+
+<!-- 2 ------------------------------------------------------------------>
+<section class="scheda" id="emozione-prevalente">
+  <h2>2. Emozione prevalente per canzone</h2>
+  <p class="sottotitolo">Grafico a barre · lessico NRC</p>
+  <img src="fase_3/grafico_temi_totale_per_canzone.png" alt="Grafico a barre con il numero di canzoni per cui ciascuna emozione è quella prevalente" loading="lazy">
+  <div class="testo">
+    <h3>Cosa mostra</h3>
+    <p>Quante canzoni hanno una certa emozione come <strong>prevalente</strong>, cioè quella con il punteggio più alto. Ogni canzone conta 1 sull'emozione vincente: nell'esempio di prima, la canzone con 12 punti di rabbia e 4 di fiducia aggiunge 1 alla rabbia e niente alla fiducia.</p>
+    <h3>Cosa si osserva</h3>
+    <p>L'emozione prevalente è <strong>attesa</strong> in 13 canzoni su 20, <strong>rabbia</strong> in 4, mentre gioia, fiducia e disgusto compaiono una volta ciascuna.</p>
+    <h3>Differenza con il grafico 1</h3>
+    <p>Qui conta soltanto l'emozione che vince in ogni canzone, nel grafico 1 contano tutti i punti. Un'emozione può essere alta nel grafico 1 senza essere quasi mai la prevalente.</p>
+  </div>
+  <div class="attenzione"><strong>Attenzione.</strong> In caso di parità tra più emozioni lo script sceglie la prima nell'ordine rabbia, attesa, disgusto, paura, gioia, tristezza, sorpresa, fiducia: la canzone <em>Il sonno ed il furto (storia di un coinquilino)</em> ha tre emozioni a 12 punti (rabbia, paura, tristezza) ed è etichettata «rabbia» solo per questo motivo.</div>
+</section>
+
+<!-- 3 ------------------------------------------------------------------>
+<section class="scheda" id="top-bottom">
+  <h2>3. Più ascoltate contro meno ascoltate</h2>
+  <p class="sottotitolo">Barre affiancate · lessico NRC · valori in percentuale</p>
+  <img src="fase_3/grafico_temi_top_bottom.png" alt="Barre affiancate con la percentuale di ciascuna emozione nelle 10 canzoni più ascoltate e nelle 10 meno ascoltate" loading="lazy">
+  <div class="testo">
+    <h3>Cosa mostra</h3>
+    <p>Per ognuna delle 8 emozioni, due barre: il suo peso percentuale nelle 10 canzoni più ascoltate e nelle 10 meno ascoltate.</p>
+    <h3>Perché le percentuali</h3>
+    <p>I due gruppi possono avere quantità di testo molto diverse. Con i valori grezzi il gruppo con più testo sembrerebbe «più emotivo» solo per la lunghezza; la percentuale sul totale del gruppo toglie questo effetto.</p>
+    <h3>Come leggerlo</h3>
+    <p>Se le due barre di un'emozione sono simili, i gruppi hanno lo stesso profilo emotivo per quell'emozione; se sono molto diverse, quell'emozione distingue i due gruppi.</p>
+  </div>
+  <div class="attenzione"><strong>Attenzione.</strong> Il campione è piccolo (20 canzoni, scelte agli estremi della classifica). Le canzoni più ascoltate sono tutte uscite dal 2020 in poi, le meno ascoltate tra il 2014 e il 2017: non si può attribuire a una sola causa la differenza tra i gruppi.</div>
+</section>
+
+<!-- 4 ------------------------------------------------------------------>
+<section class="scheda" id="mappa-calore">
+  <h2>4. Mappa di calore canzoni × emozioni</h2>
+  <p class="sottotitolo">Mappa di calore · lessico NRC</p>
+  <img src="fase_3/mappa_calore_emozioni.png" alt="Mappa di calore con le 20 canzoni sulle righe e le 8 emozioni sulle colonne; il colore indica l'intensità" loading="lazy">
+  <div class="testo">
+    <h3>Cosa mostra</h3>
+    <p>Una tabella colorata: ogni riga è una canzone, ogni colonna è un'emozione, e il colore di ogni casella indica quanto quell'emozione pesa in quella canzone.</p>
+    <h3>Come leggerlo</h3>
+    <p>Serve a vedere in un colpo d'occhio tutto il corpus: le colonne con molte caselle intense sono emozioni diffuse, le righe con una sola casella molto intensa sono canzoni dominate da una sola emozione.</p>
+  </div>
+</section>
+
+<!-- 5. CASO STUDIO SCRIVILE SCEMO (fase 3.1) -------------------------------->
+<section class="scheda" id="scrivile-intro">
+  <h2>5. Caso studio «Scrivile Scemo» (fase 3.1)</h2>
+  <p class="sottotitolo">Sei grafici sulla canzone con emozione prevalente rabbia</p>
+  <div class="testo">
+    <h3>Perché questo caso studio</h3>
+    <p>Alcuni versi ricevono un punteggio alto di rabbia, paura o tristezza dal lessico NRC, ma nella canzone il linguaggio è iperbolico: il metodo conta le parole e non coglie ironia o figure retoriche. Per verificare quanto pesa questo limite, la canzone è stata analizzata in tre modi: ogni riga da sola, con le righe vicine (±1 e ±2), e con un modello Transformer per l'ironia.</p>
+    <h3>Come leggere l'asse orizzontale</h3>
+    <p>In tutti i grafici sull'asse orizzontale c'è il <strong>numero di riga</strong> della canzone, non il testo, che è protetto da copyright. I numeri sono gli stessi in tutti i grafici, quindi permettono di confrontare lo stesso punto della canzone tra un grafico e l'altro. Possono avere qualche salto, perché le righe vuote tra le strofe sono contate nella numerazione.</p>
+  </div>
+</section>
+
+<section class="scheda" id="scrivile-emozioni">
+  <h2>Scrivile Scemo: andamento delle emozioni, senza contesto</h2>
+  <p class="sottotitolo">Grafico a linee · lessico NRC · ogni riga da sola</p>
+  <img src="fase_3/fase_3.1/andamento_Scrivile%20Scemo_top4.png" alt="Grafico a linee con il punteggio delle 4 emozioni più presenti in Scrivile Scemo, riga per riga, calcolato su ogni riga da sola" loading="lazy">
+  <div class="testo">
+    <h3>Cosa mostra</h3>
+    <p>Le 4 emozioni con il totale più alto nella canzone, riga per riga. La linea spessa è l'emozione prevalente (rabbia); le altre tre hanno marcatori diversi per restare visibili anche quando si sovrappongono. Il punteggio di ogni riga è calcolato sulle sole parole di quella riga.</p>
+    <h3>Come leggerlo</h3>
+    <p>Un picco indica una riga con molte parole associate a quell'emozione. È il punto di partenza: i grafici seguenti mostrano cosa cambia aggiungendo il contesto.</p>
+  </div>
+  <div class="attenzione"><strong>Attenzione.</strong> Il punteggio dipende dalle parole presenti nel lessico, non dal senso della frase: una riga con parole forti usate in modo iperbolico può avere un punteggio alto senza esprimere davvero quell'emozione.</div>
+</section>
+
+<section class="scheda" id="scrivile-contesto-1">
+  <h2>Scrivile Scemo: andamento delle emozioni, contesto ±1 riga</h2>
+  <p class="sottotitolo">Grafico a linee · lessico NRC · riga più la precedente e la successiva</p>
+  <img src="fase_3/fase_3.1/andamento_Scrivile%20Scemo_top4_contesto_1.png" alt="Grafico a linee con il punteggio delle 4 emozioni più presenti in Scrivile Scemo, riga per riga, calcolato includendo le parole della riga precedente e della successiva" loading="lazy">
+  <div class="testo">
+    <h3>Cosa mostra</h3>
+    <p>Lo stesso grafico di prima, ma il punteggio di ogni riga include anche le parole della riga precedente e di quella successiva (finestra di contesto di raggio 1).</p>
+    <h3>Come leggerlo</h3>
+    <p>Confrontalo con il grafico senza contesto: le linee diventano più «morbide», perché ogni riga condivide parole con le vicine, e alcune righe senza parole emotive ricevono punteggio dal contesto.</p>
+  </div>
+</section>
+
+<section class="scheda" id="scrivile-contesto-2">
+  <h2>Scrivile Scemo: andamento delle emozioni, contesto ±2 righe</h2>
+  <p class="sottotitolo">Grafico a linee · lessico NRC · finestra di due righe per lato</p>
+  <img src="fase_3/fase_3.1/andamento_Scrivile%20Scemo_top4_contesto_2.png" alt="Grafico a linee con il punteggio delle 4 emozioni più presenti in Scrivile Scemo, riga per riga, calcolato includendo le due righe precedenti e le due successive" loading="lazy">
+  <div class="testo">
+    <h3>Cosa mostra</h3>
+    <p>Come i due grafici precedenti, con una finestra più ampia: ogni riga include le parole delle due righe che la precedono e delle due che la seguono (raggio 2).</p>
+    <h3>Come leggerlo</h3>
+    <p>Più la finestra si allarga, più i punteggi si «spalmano» su più testo e le differenze tra una riga e l'altra si attenuano. L'emozione prevalente della canzone resta la rabbia in tutte e tre le versioni.</p>
+  </div>
+  <div class="attenzione"><strong>Attenzione.</strong> Anche con il contesto resta un conteggio di parole: aiuta a distribuire il punteggio, ma non riconosce ironia o linguaggio figurato più di quanto faccia il metodo riga per riga.</div>
+</section>
+
+<section class="scheda" id="scrivile-confronto">
+  <h2>Scrivile Scemo: confronto della rabbia tra le tre versioni</h2>
+  <p class="sottotitolo">Grafico a linee · rabbia · riga sola, ±1 e ±2</p>
+  <img src="fase_3/fase_3.1/confronto_righe_Scrivile_Scemo_rabbia.png" alt="Grafico a linee che sovrappone il punteggio di rabbia di ogni riga calcolato senza contesto, con contesto di una riga e con contesto di due righe" loading="lazy">
+  <div class="testo">
+    <h3>Cosa mostra</h3>
+    <p>Il punteggio di <strong>rabbia</strong> riga per riga, con le tre versioni sovrapposte: riga da sola, contesto ±1 e contesto ±2.</p>
+    <h3>Come leggerlo</h3>
+    <p>Dove le tre linee coincidono, il contesto cambia poco il giudizio su quella riga; dove si allontanano, il punteggio dipende molto dalle righe vicine.</p>
+    <h3>Cosa si osserva</h3>
+    <p>Il contesto cambia la distribuzione della rabbia: alcune righe che da sole avevano punteggio 0 arrivano a 3 includendo le righe vicine, ma l'emozione prevalente della canzone non cambia.</p>
+  </div>
+</section>
+
+<section class="scheda" id="scrivile-differenza">
+  <h2>Scrivile Scemo: differenza della rabbia, contesto meno riga sola</h2>
+  <p class="sottotitolo">Grafico a barre · rabbia · contesto ±2 meno punteggio grezzo</p>
+  <img src="fase_3/fase_3.1/differenza_righe_Scrivile_Scemo_rabbia.png" alt="Grafico a barre con la differenza di punteggio di rabbia per riga tra la versione con contesto di due righe e la versione senza contesto" loading="lazy">
+  <div class="testo">
+    <h3>Cosa mostra</h3>
+    <p>Per ogni riga, di quanto cambia il punteggio di rabbia passando dalla riga da sola al contesto ±2: la barra è il punteggio con contesto meno il punteggio grezzo.</p>
+    <h3>Come leggerlo</h3>
+    <p>Le barre più alte indicano le righe su cui il contesto incide di più. Una barra vicina a zero significa che il contesto non cambia il giudizio su quella riga.</p>
+  </div>
+</section>
+
+<section class="scheda" id="scrivile-ironia">
+  <h2>Scrivile Scemo: andamento dell'ironia</h2>
+  <p class="sottotitolo">Grafico a linee · modello Transformer irony-it · probabilità da 0 a 1</p>
+  <img src="fase_3/fase_3.1/andamento_ironia_Scrivile_Scemo.png" alt="Grafico a linee con la probabilità di ironia di ogni riga di Scrivile Scemo, calcolata con tre finestre di contesto, e una linea tratteggiata alla soglia 0,5" loading="lazy">
+  <div class="testo">
+    <h3>Cosa mostra</h3>
+    <p>La probabilità che ogni riga sia ironica secondo un modello Transformer per l'italiano (<code>aequa-tech/irony-it</code>), con tre linee: riga da sola, contesto ±1 e contesto ±2. La linea tratteggiata è la soglia 0,5.</p>
+    <h3>Come leggerlo</h3>
+    <p>Una linea sopra 0,5 indica che il modello considera quel punto più probabilmente ironico che non ironico. Se le tre linee sono vicine, il contesto cambia poco il giudizio; se si allontanano, il giudizio dipende dalle righe vicine.</p>
+    <h3>Cosa si osserva</h3>
+    <p>Ci sono alcuni picchi di ironia, soprattutto nella prima parte della canzone. Il verso che il lessico segnala con punteggi alti di rabbia, paura e tristezza non risulta tra quelli ironici secondo il modello.</p>
+  </div>
+  <div class="attenzione"><strong>Attenzione.</strong> Il modello è stato valutato dai suoi autori su tweet in italiano, non su testi di canzoni: i risultati su questo tipo di testo vanno letti con cautela.</div>
+</section>
+
+<!-- 6 ------------------------------------------------------------------>
+<section class="scheda" id="transformer">
+  <h2>6. Confronto con il modello Transformer</h2>
+  <p class="sottotitolo">Modello pysentimiento · testo dell'intera canzone</p>
+  <img src="fase_4/grafico_temi_totale_transformer.png" alt="Grafico a barre delle emozioni stimate con il modello Transformer" loading="lazy">
+  <div class="testo">
+    <h3>Cosa mostra</h3>
+    <p>Le emozioni stimate con un modello Transformer già addestrato, applicato al testo dell'intera canzone e non riga per riga. La rabbia risulta l'emozione prevalente nelle canzoni analizzate, in 12 canzoni su 20.</p>
+    <h3>Come leggerlo</h3>
+    <p>Il modello conosce 6 emozioni (rabbia, disgusto, paura, gioia, tristezza, sorpresa) più una categoria residua; non ha né <em>attesa</em> né <em>fiducia</em>. Per questo il confronto con il lessico NRC è possibile solo sulle emozioni in comune.</p>
+  </div>
+  <div class="attenzione"><strong>Attenzione.</strong> Il modello può leggere al massimo 512 token per volta. Tre canzoni (<em>Pula</em>, <em>Me Want Marò Back</em>, <em>Il concorso musicale</em>) superano il limite: per quelle il modello potrebbe aver considerato solo la parte iniziale del testo.</div>
+</section>
+
+<!-- 7 ------------------------------------------------------------------>
+<section class="scheda" id="interattivo">
+  <h2>7. Grafico interattivo: anno, ascolti ed emozione</h2>
+  <p class="sottotitolo">Grafico interattivo · una canzone per pallino</p>
+  <a class="apri" href="fase_5_e_6/grafico_interattivo.html">Apri il grafico a schermo intero →</a>
+  <iframe class="incorporato" src="fase_5_e_6/grafico_interattivo.html" title="Grafico interattivo degli ascolti per anno di uscita ed emozione prevalente" loading="lazy"></iframe>
+  <div class="testo">
+    <h3>Cosa mostra</h3>
+    <p>Ogni pallino è una canzone: l'asse orizzontale è l'anno di uscita (compresi gli anni senza canzoni), l'asse verticale sono gli ascolti Spotify e il colore indica l'emozione prevalente.</p>
+    <h3>Come usarlo</h3>
+    <p>Passa il mouse su un pallino (o toccalo, da telefono) per vedere titolo, emozione, anno e ascolti esatti. Trascina un rettangolo per zoomare, fai doppio clic per tornare alla vista iniziale, clicca un'emozione nella legenda per nasconderla o mostrarla.</p>
+    <h3>Come leggere la scala</h3>
+    <p>L'asse verticale è <strong>logaritmico</strong>: ogni tacca moltiplica invece di sommare. Salire da 1 a 2 milioni occupa lo stesso spazio che da 100 a 200 milioni, perché in entrambi i casi gli ascolti raddoppiano. La distanza tra due pallini indica quante volte uno è più ascoltato dell'altro (<em>Ridere</em> ha circa 128 volte gli ascolti di <em>Pula</em>), non la differenza assoluta.</p>
+    <h3>Cosa si osserva</h3>
+    <p>L'anno di uscita separa nettamente i due gruppi: le 10 più ascoltate sono uscite tra il 2020 e il 2024, le 10 meno ascoltate tra il 2014 e il 2017. L'emozione prevalente, invece, non distingue i due gruppi.</p>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Dati e crediti.</strong> Date di uscita da Genius (<a href="https://genius.com">genius.com</a>); ascolti Spotify da <a href="https://kworb.net">kworb.net</a>, rilevati il 05/10/2026 (cambiano ogni giorno). I testi delle canzoni non sono inclusi in questo sito.</p>
+  <p>Questo progetto usa il NRC Emotion Lexicon, creato da Saif Mohammad e Peter Turney al National Research Council Canada. Citazione: S. Mohammad e P. Turney, <em>Crowdsourcing a Word-Emotion Association Lexicon</em>, Computational Intelligence, 29(3), 436-465, 2013. <a href="http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm">Pagina del lessico</a>.</p>
+  <p>Progetto universitario con finalità didattiche.</p>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+# =====================================================================
+# requirements.txt - librerie necessarie per il progetto
+# =====================================================================
+# Per installarle tutte in un colpo solo, con l'ambiente virtuale
+# (.venv) attivo:
+#     pip install -r requirements.txt
+#
+# Qui sotto ogni libreria e' commentata con la fase del progetto in
+# cui viene usata e a cosa serve.
+# =====================================================================
+# NOTA: oltre alle librerie qui sotto serve il lessico NRC (italiano e spagnolo),
+# che NON si installa con pip: vedi la sezione "Risorse esterne" del README.md.
+# =====================================================================
+
+# --- FASE 1: download dei testi ---
+lyricsgenius        # si collega all'API di Genius e scarica il testo delle canzoni
+python-dotenv        # legge il token API dal file .env invece di scriverlo nel codice
+
+# --- FASE 2: analisi delle emozioni con il lessico NRC ---
+langdetect            # rileva automaticamente la lingua di ogni riga (italiano/inglese/spagnolo)
+pandas                 # gestisce i dati in formato tabellare (CSV), usata in quasi tutti gli script da qui in poi
+
+# --- FASE 2 (confronto): emozioni con un modello Transformer ---
+pysentimiento           # modello Transformer per l'analisi delle emozioni (confronto col metodo a lessico)
+
+# --- FASE 3: grafici ---
+matplotlib                # crea i grafici a linee e a barre
+seaborn                     # crea la mappa di calore (si appoggia a matplotlib)
+numpy                        # calcoli numerici di supporto per il grafico a barre affiancate (Top 10 vs Bottom 10)
+
+# --- FASE 3.1 e FASE 4: modelli Transformer ---
+transformers                   # libreria di Hugging Face per usare modelli Transformer pre-addestrati (es. irony-it)
+torch                           # libreria che fa "girare" i modelli Transformer (richiesta da transformers e pysentimiento)
+
+# --- FASE 5: date di uscita (Genius) e ascolti Spotify (kworb.net) ---
+requests                # fa le richieste web: ricerca su Genius (anni di uscita) e download della pagina di kworb
+lxml                     # permette a pandas (pd.read_html) di leggere le tabelle HTML di kworb
+
+# --- FASE 6: grafici finali ---
+plotly                 # crea il grafico interattivo in HTML (scheda con i dati al passaggio del mouse)
+adjustText             # (facoltativa) sposta le etichette del grafico statico per non farle sovrapporre
+
+# pandas e python-dotenv sono gia' elencati sopra e servono anche qui:
+# pandas costruisce e salva canzoni_finale.csv, python-dotenv legge il token Genius dal .env

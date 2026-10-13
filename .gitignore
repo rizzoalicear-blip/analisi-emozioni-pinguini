@@ -1,0 +1,34 @@
+# --- SEGRETI ---------------------------------------------------------
+# File con il token di Genius: NON deve mai finire su GitHub
+.env
+
+# --- AMBIENTE VIRTUALE -----------------------------------------------
+# Le librerie installate nella cartella .venv: sono pesanti e
+# si reinstallano con "pip install -r requirements.txt"
+.venv/
+venv/
+
+# --- FILE TEMPORANEI CREATI IN AUTOMATICO ----------------------------
+# Cartelle di cache che Python crea da solo quando esegui gli script
+__pycache__/
+*.pyc
+# File che il Finder del Mac crea in ogni cartella che apri
+.DS_Store
+
+# --- COPYRIGHT -------------------------------------------------------
+# Testi delle canzoni (protetti da copyright)
+testi_canzoni/
+
+# CSV che contengono una colonna "testo" con i versi
+fase_2/emozioni_per_riga.csv
+fase_3/fase_3.1/emozioni_Scrivile_Scemo_contesto_raggio*.csv
+fase_3/fase_3.1/ironia_Scrivile_Scemo.csv
+
+#Eccezioni di lingua
+fase_2/eccezioni_lingua.csv
+crea_eccezioni_lingua.py
+emozioni_prima_r*.csv
+
+# Lessico NRC (gli autori non ne permettono la ridistribuzione)
+fase_2/Italian-NRC-EmoLex.txt
+fase_2/Spanish-NRC-EmoLex.txt

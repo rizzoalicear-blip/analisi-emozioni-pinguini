@@ -1,0 +1,103 @@
+File trovati: 20
+
+============================================================
+MODELLO: it
+============================================================
+Emozioni del modello: ['joy', 'anger', 'sadness', 'fear']
+Limite dichiarato dal tokenizzatore: 128
+Limite scritto nella configurazione: 512
+
+79 [it] - 506 token, letto circa 25% | intero = inizio: SI (diff max 0.000) | prevalente: intero anger, inizio anger, fine sadness -> CAMBIA
+  emozione      intero   inizio     fine
+  joy          0.007    0.007    0.077
+  anger        0.972    0.972    0.019
+  sadness      0.016    0.016    0.893
+  fear         0.006    0.006    0.011
+
+============================================================
+MODELLO: en
+============================================================
+Emozioni del modello: ['others', 'joy', 'sadness', 'anger', 'surprise', 'disgust', 'fear']
+Limite dichiarato dal tokenizzatore: 128
+Limite scritto nella configurazione: 130
+
+Django [en] - 426 token, letto circa 30% | intero = inizio: SI (diff max 0.000) | prevalente: intero others, inizio others, fine others
+Gigi cinque ottavi [it] - 312 token, letto circa 40% | intero = inizio: SI (diff max 0.000) | prevalente: intero anger, inizio anger, fine anger
+Giovani Wannabe [it] - 457 token, letto circa 28% | intero = inizio: SI (diff max 0.000) | prevalente: intero anger, inizio anger, fine sadness -> CAMBIA
+  emozione      intero   inizio     fine
+  joy          0.030    0.030    0.214
+  anger        0.537    0.537    0.055
+  sadness      0.414    0.414    0.718
+  fear         0.019    0.019    0.012
+Il concorso musicale [it] - 528 token, letto circa 24% | intero = inizio: SI (diff max 0.000) | prevalente: intero anger, inizio anger, fine anger
+Il sonno ed il furto storia di un coinquilino [it] - 338 token, letto circa 37% | intero = inizio: SI (diff max 0.000) | prevalente: intero anger, inizio anger, fine anger
+In vento [it] - 363 token, letto circa 35% | intero = inizio: SI (diff max 0.000) | prevalente: intero anger, inizio anger, fine anger
+Islanda [it] - 413 token, letto circa 31% | intero = inizio: SI (diff max 0.000) | prevalente: intero anger, inizio anger, fine anger
+La storia infinita [it] - 355 token, letto circa 35% | intero = inizio: SI (diff max 0.000) | prevalente: intero joy, inizio joy, fine fear -> CAMBIA
+  emozione      intero   inizio     fine
+  joy          0.699    0.699    0.014
+  anger        0.015    0.015    0.071
+  sadness      0.278    0.278    0.238
+  fear         0.008    0.008    0.677
+Me Want Marò Back [en] - 604 token, letto circa 21% | intero = inizio: SI (diff max 0.000) | prevalente: intero others, inizio others, fine anger -> CAMBIA
+  emozione      intero   inizio     fine
+  others       0.979    0.979    0.003
+  joy          0.008    0.008    0.002
+  sadness      0.001    0.001    0.002
+  anger        0.002    0.002    0.981
+  surprise     0.002    0.002    0.002
+  disgust      0.005    0.005    0.010
+  fear         0.003    0.003    0.002
+Pastello Bianco [it] - 377 token, letto circa 33% | intero = inizio: SI (diff max 0.000) | prevalente: intero sadness, inizio sadness, fine joy -> CAMBIA
+  emozione      intero   inizio     fine
+  joy          0.008    0.008    0.559
+  anger        0.046    0.046    0.009
+  sadness      0.913    0.913    0.422
+  fear         0.033    0.033    0.011
+Pula [it] - 634 token, letto circa 20% | intero = inizio: SI (diff max 0.000) | prevalente: intero joy, inizio joy, fine sadness -> CAMBIA
+  emozione      intero   inizio     fine
+  joy          0.668    0.668    0.010
+  anger        0.048    0.048    0.011
+  sadness      0.267    0.267    0.942
+  fear         0.017    0.017    0.037
+Ricordi [it] - 478 token, letto circa 26% | intero = inizio: SI (diff max 0.000) | prevalente: intero fear, inizio fear, fine sadness -> CAMBIA
+  emozione      intero   inizio     fine
+  joy          0.013    0.013    0.051
+  anger        0.115    0.115    0.281
+  sadness      0.286    0.286    0.646
+  fear         0.586    0.586    0.022
+Ridere [it] - 351 token, letto circa 36% | intero = inizio: SI (diff max 0.000) | prevalente: intero sadness, inizio sadness, fine fear -> CAMBIA
+  emozione      intero   inizio     fine
+  joy          0.010    0.010    0.007
+  anger        0.020    0.020    0.108
+  sadness      0.946    0.946    0.360
+  fear         0.024    0.024    0.525
+Ringo Starr [it] - 419 token, letto circa 30% | intero = inizio: SI (diff max 0.000) | prevalente: intero anger, inizio anger, fine sadness -> CAMBIA
+  emozione      intero   inizio     fine
+  joy          0.008    0.008    0.060
+  anger        0.846    0.846    0.023
+  sadness      0.128    0.128    0.900
+  fear         0.018    0.018    0.018
+Rodger [it] - 166 token, letto circa 76% | intero = inizio: SI (diff max 0.000) | prevalente: intero sadness, inizio sadness, fine sadness
+Rubami la Notte [it] - 405 token, letto circa 31% | intero = inizio: SI (diff max 0.000) | prevalente: intero anger, inizio anger, fine anger
+Scooby Doo [it] - 421 token, letto circa 30% | intero = inizio: SI (diff max 0.000) | prevalente: intero anger, inizio anger, fine anger
+Scrivile Scemo [it] - 377 token, letto circa 33% | intero = inizio: SI (diff max 0.000) | prevalente: intero anger, inizio anger, fine anger
+Sudowoodo [it] - 237 token, letto circa 53% | intero = inizio: SI (diff max 0.000) | prevalente: intero anger, inizio anger, fine anger
+
+============================================================
+RIEPILOGO
+============================================================
+Canzoni analizzate: 20
+Canzoni in cui il risultato sull'intera canzone coincide con quello sul solo inizio: 20
+Canzoni in cui l'emozione prevalente cambia leggendo la fine invece dell'inizio: 9
+  - 79
+  - Giovani Wannabe
+  - La storia infinita
+  - Me Want Marò Back
+  - Pastello Bianco
+  - Pula
+  - Ricordi
+  - Ridere
+  - Ringo Starr
+
+COME LEGGERE: 'intero = inizio: SI' significa che il modello ha letto solo i primi 126 token. 'CAMBIA' significa che, leggendo la parte finale della canzone, l'emozione prevalente sarebbe stata un'altra.
